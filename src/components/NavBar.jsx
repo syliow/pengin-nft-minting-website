@@ -1,10 +1,48 @@
 //create a navbar component
 
 import React from "react";
+import {
+  Flex,
+  Box,
+  Button,
+  Text,
+  HStack,
+  Avatar,
+  Link,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  useColorModeValue,
+  Stack,
+  useColorMode,
+  Center,
+} from "@chakra-ui/react";
+
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+
+const NavLink = ({ children }) => (
+  <Link
+    px={2}
+    py={1}
+    rounded={"md"}
+    _hover={{
+      textDecoration: "none",
+      bg: useColorModeValue("gray.200", "gray.700"),
+    }}
+    href={"#"}
+  >
+    {children}
+  </Link>
+);
 
 const NavBar = (props) => {
   const { accounts, setAccounts } = props;
-  const isConnected = Boolean(accounts);
+  const isConnected = Boolean(accounts[0]);
+  const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const connectAccount = async () => {
     if (window.ethereum) {
@@ -16,26 +54,31 @@ const NavBar = (props) => {
     }
   };
 
+  const disconnectAccount = async () => {
+    setAccounts([]);
+  };
+
   return (
-    <div>
+    <Flex
+      justifyContent="space-between"
+      align="center"
+      padding="30px"
+    >
       {isConnected ? (
-        <div>
-          <>
-            <h1>Connected</h1>
-            <button
-            // onClick={disconnectAccount}
-            >
-              Disconnect
-            </button>
-          </>
-        </div>
+        <Flex>
+          <Text>Account: {accounts}</Text>
+          <Box margin="0 15px">Connected</Box>
+          <Button onClick={disconnectAccount}>Disconnect</Button>
+        </Flex>
       ) : (
-        <div>
+        <HStack>
           <h1>Not Connected</h1>
-          <button onClick={connectAccount}>Connect</button>
-        </div>
+          <Button borderRadius={5} onClick={connectAccount}>
+            Connect
+          </Button>
+        </HStack>
       )}
-    </div>
+    </Flex>
   );
 };
 
