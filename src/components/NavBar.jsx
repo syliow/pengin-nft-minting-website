@@ -58,27 +58,86 @@ const NavBar = (props) => {
     setAccounts([]);
   };
 
+  console.log(colorMode,'color')
   return (
-    <Flex
-      justifyContent="space-between"
-      align="center"
-      padding="30px"
-    >
-      {isConnected ? (
-        <Flex>
-          <Text>Account: {accounts}</Text>
-          <Box margin="0 15px">Connected</Box>
-          <Button onClick={disconnectAccount}>Disconnect</Button>
+    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <Box>Pengin Club </Box>
+
+        <Flex alignItems={"center"}>
+          <Stack direction={"row"} spacing={7}>
+            <Button onClick={toggleColorMode}>
+              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            </Button>
+
+            {!isConnected ? (
+              <Button
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"sm"}
+                fontWeight={600}
+                color={"white"}
+                bg={"pink.400"}
+                href={"#"}
+                _hover={{
+                  bg: "pink.300",
+                }}
+                borderRadius={5}
+                onClick={connectAccount}
+              >
+                Connect
+              </Button>
+            ) : (
+              <><Button
+                  display={{ base: "none", md: "inline-flex" }}
+                  fontSize={"sm"}
+                  fontWeight={600}
+                  color={"white"}
+                  bg={"pink.400"}
+                  href={"#"}
+                  _hover={{
+                    bg: "pink.300",
+                  }}
+                  borderRadius={5}
+                  onClick={disconnectAccount}
+                >
+                  Disconnect
+                </Button><Menu>
+                    <MenuButton
+                      as={Button}
+                      rounded={"full"}
+                      variant={"link"}
+                      cursor={"pointer"}
+                      minW={0}
+                    >
+                      <Avatar
+                        size={"sm"}
+                        src={"https://avatars.dicebear.com/api/male/username.svg"} />
+                    </MenuButton>
+                    <MenuList alignItems={"center"}>
+                      <br />
+                      <Center>
+                        <Avatar
+                          size={"2xl"}
+                          src={"https://avatars.dicebear.com/api/male/username.svg"} />
+                      </Center>
+                      <br />
+                      <Center>
+                        <Text>Account: {accounts}</Text>
+                      </Center>
+                      <br />
+                      {/* <MenuDivider /> */}
+                      {/* <MenuItem>Your Servers</MenuItem>
+    <MenuItem>Account Settings</MenuItem>
+    <MenuItem>Logout</MenuItem> */}
+                    </MenuList>
+                  </Menu></>
+            )}
+
+           
+          </Stack>
         </Flex>
-      ) : (
-        <HStack>
-          <h1>Not Connected</h1>
-          <Button borderRadius={5} onClick={connectAccount}>
-            Connect
-          </Button>
-        </HStack>
-      )}
-    </Flex>
+      </Flex>
+    </Box>
   );
 };
 

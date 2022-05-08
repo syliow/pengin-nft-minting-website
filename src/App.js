@@ -1,16 +1,21 @@
 import { useState } from "react";
 import "./App.css";
-import MainMint from "./MainMint";
-import NavBar from "./NavBar";
+import MainMint from "./components/MainMint";
+import NavBar from "./components/NavBar";
+import { ThemeProvider, theme, Box } from "@chakra-ui/react";
+import PenginGIF from "./assets/pengin.gif";
 
 function App() {
   const [accounts, setAccounts] = useState([]);
+  console.log(accounts, "accounts");
   return (
-    <div className="App">
-      <NavBar accounts={accounts} setAccounts={setAccounts} />
-
-      <MainMint accounts={accounts} setAccounts={setAccounts} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box className="App">
+        <NavBar accounts={accounts} setAccounts={setAccounts} />
+        <img src={PenginGIF} alt="pengin" className="pengin" />
+        <MainMint accounts={accounts} setAccounts={setAccounts} />
+      </Box>
+    </ThemeProvider>
   );
 }
 
