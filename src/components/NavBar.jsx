@@ -21,7 +21,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import ProfilePic from "../assets/layered_steps.png";
 
 const NavLink = ({ children }) => (
   <Link
@@ -58,21 +58,22 @@ const NavBar = (props) => {
     setAccounts([]);
   };
 
-  console.log(colorMode,'color')
+  console.log(colorMode, "color");
   return (
-    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+    <Box px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         <Box>Pengin Club </Box>
 
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>
-            <Button onClick={toggleColorMode}>
-              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-            </Button>
-
             {!isConnected ? (
               <Button
-                display={{ base: "none", md: "inline-flex" }}
+                display={{
+                  base: "none",
+                  xs: "inline-flex",
+                  sm: "inline-flex",
+                  md: "inline-flex",
+                }}
                 fontSize={"sm"}
                 fontWeight={600}
                 color={"white"}
@@ -87,7 +88,8 @@ const NavBar = (props) => {
                 Connect
               </Button>
             ) : (
-              <><Button
+              <>
+                <Button
                   display={{ base: "none", md: "inline-flex" }}
                   fontSize={"sm"}
                   fontWeight={600}
@@ -101,39 +103,37 @@ const NavBar = (props) => {
                   onClick={disconnectAccount}
                 >
                   Disconnect
-                </Button><Menu>
-                    <MenuButton
-                      as={Button}
-                      rounded={"full"}
-                      variant={"link"}
-                      cursor={"pointer"}
-                      minW={0}
-                    >
-                      <Avatar
-                        size={"sm"}
-                        src={"https://avatars.dicebear.com/api/male/username.svg"} />
-                    </MenuButton>
-                    <MenuList alignItems={"center"}>
-                      <br />
-                      <Center>
-                        <Avatar
-                          size={"2xl"}
-                          src={"https://avatars.dicebear.com/api/male/username.svg"} />
-                      </Center>
-                      <br />
-                      <Center>
-                        <Text>Account: {accounts}</Text>
-                      </Center>
-                      <br />
-                      {/* <MenuDivider /> */}
-                      {/* <MenuItem>Your Servers</MenuItem>
+                </Button>
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    rounded={"full"}
+                    variant={"link"}
+                    cursor={"pointer"}
+                    minW={0}
+                  >
+                    <Avatar size={"sm"} src={ProfilePic} />
+                  </MenuButton>
+                  <MenuList alignItems={"center"}>
+                    <br />
+                    <Center>
+                      <Avatar size={"2xl"} src={ProfilePic} />
+                    </Center>
+                    <br />
+                    <Center>
+                      <Text style={{ color: "black" }} sx={{ m: 3 }}>
+                        Account: {accounts}
+                      </Text>
+                    </Center>
+                    <br />
+                    {/* <MenuDivider /> */}
+                    {/* <MenuItem>Your Servers</MenuItem>
     <MenuItem>Account Settings</MenuItem>
     <MenuItem>Logout</MenuItem> */}
-                    </MenuList>
-                  </Menu></>
+                  </MenuList>
+                </Menu>
+              </>
             )}
-
-           
           </Stack>
         </Flex>
       </Flex>
