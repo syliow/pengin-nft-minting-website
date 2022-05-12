@@ -77,10 +77,10 @@ const NavBar = (props) => {
                 fontSize={"sm"}
                 fontWeight={600}
                 color={"white"}
-                bg={"pink.400"}
+                bg={"#5454c5"}
                 href={"#"}
                 _hover={{
-                  bg: "pink.300",
+                  bg: "#639cd9",
                 }}
                 borderRadius={5}
                 onClick={connectAccount}
@@ -94,7 +94,7 @@ const NavBar = (props) => {
                   fontSize={"sm"}
                   fontWeight={600}
                   color={"white"}
-                  bg={"pink.400"}
+                  bg={"#ca9dd7"}
                   href={"#"}
                   _hover={{
                     bg: "pink.300",

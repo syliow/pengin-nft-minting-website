@@ -88,10 +88,10 @@ const MainMint = (props) => {
       {isConnected ? (
         <>
           <Box>
-            <Text fontSize="50px" color="tomato">
+            <Text fontSize="50px" style={{ color: "#639cd9" }}>
               Mint Your Pengin NFTs Now
             </Text>
-            <Text>Price: 0.02 ETH</Text>
+            <Text style={{color:"white"}}>Price: 0.02 ETH</Text>
 
             {/* <HStack maxWidth="320px"> */}
             <Box>
@@ -106,6 +106,7 @@ const MainMint = (props) => {
                 paddingLeft="15px"
                 margin="15px"
                 height="35px"
+                style={{ color: "white" }}
                 {...input}
                 maxWidth="50px"
               />
@@ -120,7 +121,7 @@ const MainMint = (props) => {
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
-              bg={"pink.400"}
+              bg={"#5454c5"}
               href={"#"}
               _hover={{
                 bg: "pink.300",
