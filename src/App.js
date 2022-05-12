@@ -10,10 +10,15 @@ function App() {
   console.log(accounts, "accounts");
   return (
     <ThemeProvider theme={theme}>
-      <Box className="App">
-        <NavBar accounts={accounts} setAccounts={setAccounts} />
-        <img src={PenginGIF} alt="pengin" className="pengin" />
-        <MainMint accounts={accounts} setAccounts={setAccounts} />
+      <Box className="overlay">
+        <Box className="App" width="100%" height="100%">
+          <NavBar accounts={accounts} setAccounts={setAccounts} />
+          <Box mt={5}>
+            <img src={PenginGIF} alt="pengin" className="pengin" />
+          </Box>
+          <MainMint accounts={accounts} setAccounts={setAccounts} />
+        </Box>
+        <Box className="background"></Box>
       </Box>
     </ThemeProvider>
   );
