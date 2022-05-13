@@ -91,7 +91,9 @@ const MainMint = (props) => {
             <Text fontSize="50px" style={{ color: "#639cd9" }}>
               Mint Your Pengin NFTs Now
             </Text>
-            <Text style={{color:"white"}}>Price: 0.02 ETH</Text>
+            <Text style={{ color: "white", fontSize: 22 }}>
+              Price: 0.02 ETH
+            </Text>
 
             {/* <HStack maxWidth="320px"> */}
             <Box>
@@ -135,9 +137,18 @@ const MainMint = (props) => {
           </Box>
         </>
       ) : (
-        <div>
-          <p>Connect your Metamask to mint Pengin NFT.</p>
-        </div>
+        <Box>
+          <p
+            style={{
+              fontSize: 25,
+              marginTop: "70px",
+              fontWeight: "bold",
+              color: "#639cd9",
+            }}
+          >
+            Connect your Metamask to mint Pengin NFT.
+          </p>
+        </Box>
       )}
     </div>
   );

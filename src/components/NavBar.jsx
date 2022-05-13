@@ -61,8 +61,17 @@ const NavBar = (props) => {
   console.log(colorMode, "color");
   return (
     <Box px={4}>
-      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Box>Pengin Club </Box>
+      <Flex h={16} p={6} alignItems={"center"} justifyContent={"space-between"}>
+        <Box>
+          <Text
+            fontFamily={"Raleway"}
+            fontWeight={"bold"}
+            fontSize="2xl"
+            color={"#639cd9"}
+          >
+            Pengin Club
+          </Text>
+        </Box>
 
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>
@@ -110,7 +119,7 @@ const NavBar = (props) => {
                     rounded={"full"}
                     variant={"link"}
                     cursor={"pointer"}
-                    minW={0}
+                    // minW={0}
                   >
                     <Avatar size={"sm"} src={ProfilePic} />
                   </MenuButton>
@@ -126,10 +135,6 @@ const NavBar = (props) => {
                       </Text>
                     </Center>
                     <br />
-                    {/* <MenuDivider /> */}
-                    {/* <MenuItem>Your Servers</MenuItem>
-    <MenuItem>Account Settings</MenuItem>
-    <MenuItem>Logout</MenuItem> */}
                   </MenuList>
                 </Menu>
               </>
