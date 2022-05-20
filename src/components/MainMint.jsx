@@ -52,37 +52,55 @@ const MainMint = (props) => {
   const input = getInputProps();
 
   const handleDecrement = () => {
-    console.log(mintAmount, "mint decrease");
     if (mintAmount <= 1) {
       return;
     }
-    console.log("DECREASE");
     setMintAmount(mintAmount - 1);
   };
 
   const handleIncrement = () => {
-    console.log(mintAmount, "mint increase");
     if (mintAmount >= 10) {
       return;
     }
     setMintAmount(mintAmount + 1);
   };
 
-  //   window.ethereum.request({
-  //     method: "wallet_addEthereumChain",
-  //     params: [{
-  //         chainId: "0x89",
-  //         rpcUrls: ["https://rpc-mainnet.matic.network/"],
-  //         chainName: "Rinkeby Testnet",
-  //         nativeCurrency: {
-  //             name: "MATIC",
-  //             symbol: "MATIC",
-  //             decimals: 18
-  //         },
-  //         blockExplorerUrls: ["https://polygonscan.com/"]
-  //     }]
-  // });
-  console.log(mintAmount, "mint amount");
+  // Check if MetaMask is installed
+  // MetaMask injects the global API into window.ethereum
+  if (window.ethereum) {
+    try {
+      // check if the chain to connect to is installed
+      window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x4" }], // chainId must be in hexadecimal numbers
+      });
+    } catch (error) {
+      // This error code indicates that the chain has not been added to MetaMask
+      // if it is not, then install it into the user MetaMask
+      if (error.code === 4902) {
+        try {
+          window.ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [
+              {
+                chainId: "0x4",
+                rpcUrl: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+              },
+            ],
+          });
+        } catch (addError) {
+          console.error(addError);
+        }
+      }
+      console.error(error);
+    }
+  } else {
+    // if no window.ethereum then MetaMask is not installed
+    alert(
+      "MetaMask is not installed. Please install Metamask: https://metamask.io/download.html"
+    );
+  }
+
   return (
     <div>
       {isConnected ? (
