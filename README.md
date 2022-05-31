@@ -4,7 +4,7 @@
 <!-- Pengin Club is my first personal NFT (Non-Fungible Token) collection. I'm really interested in Ethereum and blockchain technology. So I decided to create a Pengin NFT collection and Pengin Club website as my portfolio. -->
 
 ### ✨ [View Mint Website here](https://pengin-nftmint.netlify.app/)
-### 📋 [Check out the NFT Smart Contract here](https://rinkeby.etherscan.io/address/0x846fb11a8a8b3186d172ed7f283693815a7a3e18)
+### ✅ [Check out the Verified Smart Contract here](https://rinkeby.etherscan.io/address/0x846fb11a8a8b3186d172ed7f283693815a7a3e18)
 ### 🖼️ [View NFT collection on Opensea](https://testnets.opensea.io/collection/pengin-nft-club)
 
 
