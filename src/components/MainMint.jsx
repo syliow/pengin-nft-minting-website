@@ -51,20 +51,6 @@ const MainMint = (props) => {
   const dec = getDecrementButtonProps();
   const input = getInputProps();
 
-  const handleDecrement = () => {
-    if (mintAmount <= 1) {
-      return;
-    }
-    setMintAmount(mintAmount - 1);
-  };
-
-  const handleIncrement = () => {
-    if (mintAmount >= 10) {
-      return;
-    }
-    setMintAmount(mintAmount + 1);
-  };
-
   // Check if MetaMask is installed
   // MetaMask injects the global API into window.ethereum
   if (window.ethereum) {
@@ -102,7 +88,7 @@ const MainMint = (props) => {
   }
 
   return (
-    <div>
+    <Box>
       {isConnected ? (
         <>
           <Box>
@@ -168,7 +154,7 @@ const MainMint = (props) => {
           </p>
         </Box>
       )}
-    </div>
+    </Box>
   );
 };
 export default MainMint;

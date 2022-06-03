@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import MainMint from "./components/MainMint";
 import NavBar from "./components/NavBar";
-import { ThemeProvider, theme, Box } from "@chakra-ui/react";
+import { ThemeProvider, theme, Box, Image } from "@chakra-ui/react";
 import PenginGIF from "./assets/pengin.gif";
 
 function App() {
@@ -11,10 +11,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box className="overlay">
-        <Box className="App" width="100%" height="100%">
+        <Box className="App">
           <NavBar accounts={accounts} setAccounts={setAccounts} />
           <Box mt={5}>
-            <img src={PenginGIF} alt="pengin" className="pengin" />
+            <Image
+              boxSize="350px"
+              src={PenginGIF}
+              alt="pengin"
+              className="pengin"
+            />
           </Box>
           <MainMint accounts={accounts} setAccounts={setAccounts} />
         </Box>
