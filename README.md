@@ -4,8 +4,11 @@
 <!-- Pengin Club is my first personal NFT (Non-Fungible Token) collection. I'm really interested in Ethereum and blockchain technology. So I decided to create a Pengin NFT collection and Pengin Club website as my portfolio. -->
 
 ### ✨ [View Mint Website here](https://pengin-nftmint.netlify.app/)
-### ✅ [Check out the Verified Smart Contract here](https://rinkeby.etherscan.io/address/0x846fb11a8a8b3186d172ed7f283693815a7a3e18)
-### 🖼️ [View NFT collection on Opensea](https://testnets.opensea.io/collection/pengin-nft-club)
+### ~~✅ [Check out the Verified Smart Contract here](https://rinkeby.etherscan.io/address/0x846fb11a8a8b3186d172ed7f283693815a7a3e18)~~
+(21 August 2023 Update)
+- Contract Redeployed to `Polygon Mumbai Testnet` due to Rinkeby Deprecation
+### ✅ [Check out the Redeployed Smart Contract here](https://mumbai.polygonscan.com/address/0x52CaE6483C468C8C0720163a2C0DDfaa0a3b123C)
+### 🖼️ [View NFT collection on Opensea](https://testnets.opensea.io/collection/pengin-nft-1)
 
 
 ## Why Solidity? 
